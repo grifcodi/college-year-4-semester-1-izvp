@@ -122,8 +122,7 @@ namespace _11_practice.Models
         {
             if (dgvStudents.SelectedRows.Count == 0) return;
 
-            var selectedStudent = dgvStudents.SelectedRows[0].DataBoundItem as Student;
-            if (selectedStudent == null) return;
+            if (dgvStudents.SelectedRows[0].DataBoundItem is not Student selectedStudent) return;
 
             _selectedStudentId = selectedStudent.Id;
             textName.Text = selectedStudent.Name;
