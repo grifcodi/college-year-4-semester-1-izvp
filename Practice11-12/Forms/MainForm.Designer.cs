@@ -75,7 +75,6 @@
             dgvStudents.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvStudents.Size = new Size(740, 330);
             dgvStudents.TabIndex = 3;
-            dgvStudents.SelectionChanged += DgvStudents_SelectionChanged;
             // 
             // btnAdd
             // 
