@@ -2,5 +2,7 @@
   <Project Path="Practice09/Practice09.csproj" />
   <Project Path="Practice10/Practice10.csproj" />
   <Project Path="Practice11-12/Practice11-12.csproj" />
-  <Project Path="Practice13-14/Practice13-14.csproj" Id="0157dbae-ec09-4b47-9c73-dcdfcd6a5110" />
+  <Project Path="Practice13-14/PracticeElectronicJournal.csproj" Id="0157dbae-ec09-4b47-9c73-dcdfcd6a5110" />
+  <Project Path="Practice13/Practice13.csproj" Id="2115e32b-87ca-437a-acba-13df731156c3" />
+  <Project Path="Practice14/Practice14.csproj" Id="e0f14ae6-2976-4d65-8e93-2afcf6a6260f" />
 </Solution>
