@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:models="using:Practice15.Models"
+             xmlns:local="using:Practice15.Views"
+             x:DataType="models:TaskItem"
+             x:Class="Practice15.Views.TaskCard">
+    <Border Margin="5" Padding="15" Background="#333333" CornerRadius="8">
+        <Grid ColumnDefinitions="*, Auto, Auto">
+            
+            <TextBlock Grid.Column="0"
+                       Text="{Binding DisplayText}"
+                       VerticalAlignment="Center"
+                       FontSize="18"
+                       Classes.isCompleted="{Binding Completed}">
+                <TextBlock.Styles>
+                    <Style Selector="TextBlock.isCompleted">
+                        <Setter Property="TextDecorations" Value="Strikethrough"/> 
+                        <Setter Property="Foreground" Value="Gray"/>
+                    </Style>
+                </TextBlock.Styles>
+            </TextBlock>
+
+            <local:TaskActionButton Grid.Column="1"
+                                    Margin="5,0"
+                                    ButtonText="Change status"
+                                    ActionCommand="{Binding $parent[ListBox].DataContext.ToggleTaskCommand, x:CompileBindings=False}"
+                                    ActionParameter="{Binding}" />
+
+            <local:TaskActionButton Grid.Column="2"
+                                    Margin="5,0, 0, 0"
+                                    ButtonText="Delete"
+                                    ActionCommand="{Binding $parent[ListBox].DataContext.DeleteTaskCommand, x:CompileBindings=False}"
+                                    ActionParameter="{Binding}" />
+        </Grid>
+    </Border>
+</UserControl>

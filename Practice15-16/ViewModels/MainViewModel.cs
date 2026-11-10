@@ -43,13 +43,18 @@ public partial class MainViewModel : ViewModelBase
     }
 
     [RelayCommand]
-    private void DeleteTask()
+    private void ToggleTask(TaskItem? task)
     {
-        if (SelectedTask is not null)
+        task?.Completed = !task.Completed;
+    }
+
+    [RelayCommand]
+    private void DeleteTask(TaskItem? task)
+    {
+        if (task is not null)
         {
-            SelectedTask.PropertyChanged -= Task_PropertyChanged;
-            Tasks.Remove(SelectedTask);
-            SelectedTask = null;
+            task.PropertyChanged -= Task_PropertyChanged;
+            Tasks.Remove(task);
 
             UpdateCompletedCount();
         }

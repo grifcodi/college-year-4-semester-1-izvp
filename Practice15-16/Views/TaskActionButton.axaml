@@ -1,0 +1,11 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Practice15.Views"
+             x:Class="Practice15.Views.TaskActionButton">
+
+    <Button Content="{Binding $parent[local:TaskActionButton].ButtonText}"
+            Command="{Binding $parent[local:TaskActionButton].ActionCommand}"
+            CommandParameter="{Binding $parent[local:TaskActionButton].ActionParameter}"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"/>
+</UserControl>

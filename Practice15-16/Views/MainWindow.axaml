@@ -1,0 +1,71 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Practice15.ViewModels"
+        xmlns:local="using:Practice15.Views"
+        x:Class="Practice15.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="My Task Manager">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainViewModel />
+    </Design.DataContext>
+
+    <Grid RowDefinitions="Auto, *">
+        
+        <StackPanel Grid.Row="0" Margin="20, 20, 20, 10" Spacing="15">
+            <Border Padding="15" CornerRadius="10" Background="LightBlue">
+                    <TextBlock
+                        FontSize="24"
+                        Text="Task Manager"
+                        HorizontalAlignment="Center"
+                        Foreground="Black" />                
+            </Border>
+
+            <Border Padding="15" CornerRadius="10" Background="Gray">
+                <Grid ColumnDefinitions="*, Auto">
+                    
+                        <TextBox Grid.Column="0" 
+                                 Margin="0, 0, 15, 0"
+                                 VerticalAlignment="Center"
+                                 FontSize="16"
+                                 PlaceholderText="Task Practice"
+                                 Text="{Binding TaskText}"/>
+
+                        <Button Grid.Column="1" 
+                                Padding="15, 8"
+                                FontSize="16"
+                                CornerRadius="16"
+                                Command="{Binding AddTaskCommand}"
+                                Content="Add Task"/>
+
+                </Grid>
+            </Border>
+
+            <Border Padding="15, 6" CornerRadius="20" Background="Cyan" HorizontalAlignment="Center">
+            
+                <TextBlock
+                    FontSize="16"
+                    FontWeight="Bold"
+                    Foreground="Black"
+                    Text="{Binding CompletedTasks, StringFormat='Completed tasks: {0}'}"/>
+
+            </Border>
+
+        </StackPanel>
+
+        <ListBox Grid.Row="1"
+                 ItemsSource="{Binding Tasks}"
+                 Margin="10"
+                 Background="Transparent">
+        
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <local:TaskCard />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+    </Grid>
+</Window>
